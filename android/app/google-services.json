@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "557117503947",
+    "project_id": "pawsafe-f64c7",
+    "storage_bucket": "pawsafe-f64c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557117503947:android:b73bbad75b326a41e59e4e",
+        "android_client_info": {
+          "package_name": "com.example.pawsafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557117503947-q8ml3t7l2fpcqaem1evdihbvr58me466.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcarB7Iwahsh8x5tzT8Ev8EIp85kmfayQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557117503947-q8ml3t7l2fpcqaem1evdihbvr58me466.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
