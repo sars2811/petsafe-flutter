@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
+import 'package:pawsafe/screens/drawer.dart';
 
 class FeedScreen extends StatefulWidget {
   static const String id = 'feed_screen';
@@ -17,13 +18,17 @@ class _FeedScreenState extends State<FeedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: null,
+        // leading: null,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
         ],
         title: Text('Home Page'),
         centerTitle: true,
         backgroundColor: Colors.lightBlueAccent,
+      ),
+      drawer: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: MainDrawer(),
       ),
     );
   }
