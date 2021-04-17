@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
+import 'package:pawsafe/screens/login_screen.dart';
 
 class MainDrawer extends StatefulWidget {
   @override
@@ -148,7 +149,10 @@ class _MainDrawerState extends State<MainDrawer> {
                 fontSize: 25.0,
               ),
             ),
-            onTap: null,
+            onTap: () {
+              _auth.signOut();
+              Navigator.pushNamed(context, LoginScreen.id);
+            },
           ),
         ],
       ),
