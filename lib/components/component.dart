@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Round extends StatelessWidget {
   Round({this.title, this.colour, @required this.onPressed});
@@ -25,5 +27,73 @@ class Round extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class User{
+  String name;
+  String email;
+  String pass;
+  String city;
+  int pid;
+
+  static User getUser(){
+    return User()..name = "test"
+        ..email = "test@gmail.com"
+        ..pass = "123456"
+        ..city = "Mumbai";
+  }
+}
+
+class Pet{
+  String name;
+  String type;
+  String breed;
+  String desc;
+  String owner;
+  String city;
+  bool adapt;
+  
+  Pet(){
+    name = "";
+    type = "";
+    breed = "";
+    desc = "";
+    owner = "";
+    city = "";
+    adapt = false;
+  }
+  
+  // void toFire(){
+  //   u = User.getUser().email;
+  //   c = User.getUser().city;
+  //   if(name.isNotEmpty && type.isNotEmpty) {
+  //     FirebaseFirestore.instance
+  //       .collection('pet')
+  //       .add({
+  //       "name" = this.name,
+  //       "type" = this.type,
+  //       "breed" = this.breed,
+  //
+  //   });
+  //
+  //   }}
+}
+
+class Stray {
+  String name;
+  String type;
+  String breed;
+  String desc;
+  String owner;
+  String city;
+
+  Pet() {
+    name = "";
+    type = "";
+    breed = "";
+    desc = "";
+    owner = "";
+    city = "";
   }
 }

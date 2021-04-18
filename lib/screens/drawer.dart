@@ -107,7 +107,7 @@ class _MainDrawerState extends State<MainDrawer> {
               'Add your Pets',
               style: TextStyle(fontSize: 25.0),
             ),
-            onTap: null,
+            onTap: () => Navigator.pushNamed(context , '/addPet'),
           ),
           Padding(padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5)),
           ListTile(
@@ -118,7 +118,7 @@ class _MainDrawerState extends State<MainDrawer> {
                 fontSize: 25.0,
               ),
             ),
-            onTap: null,
+            onTap: () => Navigator.pushNamed(context , '/addStray'),
           ),
           Padding(padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5)),
           ListTile(
