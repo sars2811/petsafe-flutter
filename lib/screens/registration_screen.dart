@@ -12,10 +12,12 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final _formKey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
   bool showspinner = false;
   String email;
   String password;
+  String error = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,51 +38,82 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
               SizedBox(
-                height: 48.0,
+                height: 30.0,
               ),
-              TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  textAlign: TextAlign.center,
-                  onChanged: (value) {
-                    email = value;
-                  },
-                  decoration: kTextFieldDecoration.copyWith(
-                      hintText: 'Enter your email')),
-              SizedBox(
-                height: 8.0,
-              ),
-              TextField(
-                  obscureText: true,
-                  textAlign: TextAlign.center,
-                  onChanged: (value) {
-                    password = value;
-                  },
-                  decoration: kTextFieldDecoration.copyWith(
-                      hintText: 'Enter your password')),
-              SizedBox(
-                height: 24.0,
-              ),
+              Form(
+                  key: _formKey,
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      TextFormField(
+                        validator: (val) {
+                          Pattern pattern =
+                              r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                          RegExp regex = new RegExp(pattern);
+                          if (val.isEmpty) {
+                            return 'Please enter your email';
+                          } else if (!regex.hasMatch(val)) {
+                            return 'Enter valid email';
+                          } else {
+                            email = val;
+                          }
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: kTextFieldDecoration.copyWith(
+                            hintText: 'Enter your email'),
+                        onChanged: (val) {
+                          setState(() {
+                            email = val;
+                          });
+                        },
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      TextFormField(
+                        validator: (val) => val.length < 6
+                            ? 'Enter a password 6+ chars long'
+                            : null,
+                        decoration: kTextFieldDecoration.copyWith(
+                            hintText: 'Enter your password'),
+                        obscureText: true,
+                        onChanged: (val) {
+                          setState(() {
+                            password = val;
+                          });
+                        },
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                    ],
+                  )),
               Round(
-                title: 'Register',
-                colour: Colors.lightBlueAccent,
-                onPressed: () async {
-                  setState(() {
-                    showspinner = true;
-                  });
-                  try {
-                    final newUser = await _auth.createUserWithEmailAndPassword(
-                        email: email, password: password);
-                    if (newUser != null) {
-                      Navigator.pushNamed(context, WelcomeScreen.id);
+                  title: 'Register',
+                  colour: Colors.lightBlueAccent,
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
+                      setState(() {
+                        showspinner = true;
+                      });
+                      try {
+                        final newUser =
+                            await _auth.createUserWithEmailAndPassword(
+                                email: email, password: password);
+
+                        if (newUser != null) {
+                          Navigator.pushNamed(context, WelcomeScreen.id);
+                        }
+                        setState(() {
+                          showspinner = false;
+                        });
+                      } catch (e) {
+                        print(e);
+                      }
                     }
-                    setState(() {
-                      showspinner = false;
-                    });
-                  } catch (e) {
-                    print(e);
-                  }
-                },
-              ),
+                  }),
             ],
           ),
         ),
