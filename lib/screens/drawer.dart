@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:pawsafe/screens/login_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainDrawer extends StatefulWidget {
   @override
@@ -63,7 +64,7 @@ class _MainDrawerState extends State<MainDrawer> {
                       radius: 40.0,
                       backgroundImage: (_image != null)
                           ? FileImage(_image)
-                          : AssetImage('images/ani.jpg'),
+                          : AssetImage('assets/ani.jpg'),
                       backgroundColor: Colors.transparent,
                     ),
                   ),
@@ -88,7 +89,9 @@ class _MainDrawerState extends State<MainDrawer> {
                         color: Colors.lightBlue[50],
                         child: Text(
                           'Upload',
-                          style: TextStyle(fontSize: 20),
+                          style: GoogleFonts.baskervville(
+                            textStyle: TextStyle(fontSize: 20),
+                          ),
                         ),
                         onPressed: () {
                           uploadPic(context);
@@ -105,48 +108,52 @@ class _MainDrawerState extends State<MainDrawer> {
             leading: Icon(Icons.add),
             title: Text(
               'Add your Pets',
-              style: TextStyle(fontSize: 25.0),
+              style: GoogleFonts.baskervville(
+                textStyle: TextStyle(fontSize: 20),
+              ),
             ),
-            onTap: () => Navigator.pushNamed(context , '/addPet'),
+            onTap: () => Navigator.pushNamed(context, '/addPet'),
           ),
           Padding(padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5)),
           ListTile(
             leading: Icon(Icons.add),
             title: Text(
               'Add for Adoption',
-              style: TextStyle(
-                fontSize: 25.0,
+              style: GoogleFonts.baskervville(
+                textStyle: TextStyle(fontSize: 20),
               ),
             ),
-            onTap: () => Navigator.pushNamed(context , '/addStray'),
+            onTap: () => Navigator.pushNamed(context, '/addStray'),
           ),
           Padding(padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5)),
           ListTile(
             leading: Icon(Icons.search),
             title: Text(
               'Search for Adoption',
-              style: TextStyle(fontSize: 25.0),
-            ),
-            onTap: null,
-          ),
-          Padding(padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5)),
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text(
-              'Profile',
-              style: TextStyle(
-                fontSize: 25.0,
+              style: GoogleFonts.baskervville(
+                textStyle: TextStyle(fontSize: 20),
               ),
             ),
             onTap: null,
           ),
+          /*   Padding(padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5)),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text(
+              'Profile',
+              style: GoogleFonts.baskervville(
+                textStyle: TextStyle(fontSize: 20),
+              ),
+            ),
+            onTap: null,
+          ),*/
           Padding(padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5)),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text(
               'Logout',
-              style: TextStyle(
-                fontSize: 25.0,
+              style: GoogleFonts.baskervville(
+                textStyle: TextStyle(fontSize: 20),
               ),
             ),
             onTap: () {

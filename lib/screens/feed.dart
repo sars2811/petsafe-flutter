@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'dart:io';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:path/path.dart';
 import 'package:pawsafe/screens/drawer.dart';
 
@@ -22,7 +22,12 @@ class _FeedScreenState extends State<FeedScreen> {
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
         ],
-        title: Text('Home Page'),
+        title: Text(
+          'Home Page',
+          style: GoogleFonts.baskervville(
+            textStyle: TextStyle(fontSize: 20),
+          ),
+        ),
         centerTitle: true,
         backgroundColor: Colors.lightBlueAccent,
       ),

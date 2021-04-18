@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 tag: 'ani',
                 child: Container(
                   height: 200.0,
-                  child: Image.asset('images/ani.jpg'),
+                  child: Image.asset('assets/ani.jpg'),
                 ),
               ),
               SizedBox(

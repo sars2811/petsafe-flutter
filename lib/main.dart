@@ -26,8 +26,8 @@ class Pawsafe extends StatelessWidget {
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         FeedScreen.id: (context) => FeedScreen(),
-        '/addPet' : (BuildContext context) => AddP(),
-        '/addStray' : (BuildContext context) => AddS()
+        '/addPet': (BuildContext context) => AddP(),
+        '/addStray': (BuildContext context) => AddS()
       },
     );
   }

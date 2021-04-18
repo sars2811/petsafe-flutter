@@ -34,7 +34,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 tag: 'ani',
                 child: Container(
                   height: 200.0,
-                  child: Image.asset('images/ani.jpg'),
+                  child: Image.asset('assets/ani.jpg'),
                 ),
               ),
               SizedBox(

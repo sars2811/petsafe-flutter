@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -22,7 +23,10 @@ class Round extends StatelessWidget {
           height: 42.0,
           child: Text(
             title,
-            style: TextStyle(color: Colors.white),
+            style: GoogleFonts.baskervville(
+              textStyle: TextStyle(fontSize: 20.0),
+              color: Colors.white,
+            ),
           ),
         ),
       ),
@@ -30,22 +34,23 @@ class Round extends StatelessWidget {
   }
 }
 
-class User{
+class User {
   String name;
   String email;
   String pass;
   String city;
   int pid;
 
-  static User getUser(){
-    return User()..name = "test"
-        ..email = "test@gmail.com"
-        ..pass = "123456"
-        ..city = "Mumbai";
+  static User getUser() {
+    return User()
+      ..name = "test"
+      ..email = "test@gmail.com"
+      ..pass = "123456"
+      ..city = "Mumbai";
   }
 }
 
-class Pet{
+class Pet {
   String name;
   String type;
   String breed;
@@ -53,8 +58,8 @@ class Pet{
   String owner;
   String city;
   bool adapt;
-  
-  Pet(){
+
+  Pet() {
     name = "";
     type = "";
     breed = "";
@@ -63,7 +68,7 @@ class Pet{
     city = "";
     adapt = false;
   }
-  
+
   // void toFire(){
   //   u = User.getUser().email;
   //   c = User.getUser().city;

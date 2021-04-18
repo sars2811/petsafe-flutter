@@ -2,6 +2,7 @@ import './login_screen.dart';
 import './registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:pawsafe/components/component.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -42,15 +43,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Hero(
                   tag: 'ani',
                   child: Container(
-                    child: Image.asset('images/ani.jpg'),
+                    child: Image.asset('assets/ani.jpg'),
                     height: 60.0,
                   ),
                 ),
                 Text(
-                  ' Save a Pet',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
+                  '  PawSafe ',
+                  style: GoogleFonts.baskervville(
+                    textStyle:
+                        TextStyle(fontSize: 45.0, fontWeight: FontWeight.w900),
                   ),
                 ),
               ],
